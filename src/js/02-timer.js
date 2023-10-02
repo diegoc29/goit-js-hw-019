@@ -57,7 +57,7 @@ flatpickr(dateTimePicker, {
         const currentDate = new Date();
 
         if (selectedDate <= currentDate) {
-            Notiflix.Notify.Failure('');
+            Notiflix.Notify.Failure('2023, 8, 30, 12, 0, 0');
         } else {
             fechaObjetivo = selectedDate;
             clearInterval(countdownInterval);
