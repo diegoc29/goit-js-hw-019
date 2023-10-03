@@ -9,7 +9,7 @@ const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
 
 let countdownInterval;
-let fechaObjetivo = new Date(2023, 8, 30, 12, 0, 0);
+const fechaObjetivo = new Date(2023, 8, 30, 12, 0, 0);
 
 function convertMs(ms) {
     const seconds = Math.floor(ms / 1000);
