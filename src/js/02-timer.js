@@ -2,17 +2,14 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from "notiflix";
 
-
-const fechaObjetivo = new Date(2023, 8, 30, 12, 0, 0);
-
+const dateTimePicker = document.getElementById("datetime-picker");
 const daysElement = document.getElementById('days');
 const hoursElement = document.getElementById('hours');
 const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
-const dateTimePicker = document.getElementById("datetime-picker");
 
 let countdownInterval;
-
+let fechaObjetivo = new Date(2023, 8, 30, 12, 0, 0);
 
 function convertMs(ms) {
     const seconds = Math.floor(ms / 1000);
@@ -26,7 +23,6 @@ function convertMs(ms) {
         seconds: seconds % 60,
     };
 }
-
 
 function actualizarTemporizador() {
     const ahora = new Date();
@@ -47,7 +43,6 @@ function actualizarTemporizador() {
     }
 }
 
-
 flatpickr(dateTimePicker, {
     enableTime: true,
     time_24hr: true,
@@ -57,7 +52,7 @@ flatpickr(dateTimePicker, {
         const currentDate = new Date();
 
         if (selectedDate <= currentDate) {
-            Notiflix.Notify.Failure('2023, 8, 30, 12, 0, 0');
+            Notiflix.Notify.Failure('La fecha seleccionada debe ser en el futuro.');
         } else {
             fechaObjetivo = selectedDate;
             clearInterval(countdownInterval);
@@ -71,8 +66,6 @@ document.querySelector('[data-start]').addEventListener("click", function () {
     countdownInterval = setInterval(actualizarTemporizador, 1000);
 });
 
-
 Notiflix.Notify.Init({ position: "bottom-right" });
-
 
 actualizarTemporizador();
