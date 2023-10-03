@@ -29,7 +29,7 @@ function actualizarTemporizador() {
     const diferencia = fechaObjetivo - ahora;
 
     if (diferencia <= 0) {
-        daysElement.textContent = '00';
+        
         hoursElement.textContent = '00';
         minutesElement.textContent = '00';
         secondsElement.textContent = '00';
